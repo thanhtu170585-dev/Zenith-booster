@@ -89,21 +89,7 @@ echo [INFO] File size: %FILESIZE% bytes
 
 echo [4/4] Verifying executable...
 :: Check if it's a valid PE executable (MZ header 0x4D 0x5A)
-powershell -NoProfile -ExecutionPolicy Bypass -Command "
-try {
-    \$bytes = [System.IO.File]::ReadAllBytes('%DEST_EXE%')
-    if (\$bytes[0] -eq 0x4D -and \$bytes[1] -eq 0x5A) {
-        Write-Host '[INFO] Valid PE executable (MZ header found)'
-        exit 0
-    } else {
-        Write-Host '[ERROR] Not a valid PE executable'
-        exit 1
-    }
-} catch {
-    Write-Host 'Error: ' \$_
-    exit 1
-}
-"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "try { $bytes = [System.IO.File]::ReadAllBytes('%DEST_EXE%'); if ($bytes.Length -ge 2 -and $bytes[0] -eq 0x4D -and $bytes[1] -eq 0x5A) { Write-Host '[INFO] Valid PE executable (MZ header found)'; exit 0 } else { Write-Host '[ERROR] Not a valid PE executable'; exit 1 } } catch { Write-Host 'Error: ' $_; exit 1 }"
 if %errorlevel% neq 0 (
     echo [ERROR] Downloaded file is not a valid executable!
     del /f /q "%DEST_EXE%" >nul 2>nul
