@@ -53,7 +53,7 @@ echo [1/4] Checking for existing installation...
 if exist "%DEST_EXE%" (
     echo [INFO] Found existing %EXE_NAME%
     echo [INFO] Backing up current version...
-    for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set datetime=%%I
+    for /f "delims=" %%I in ('powershell -NoProfile -Command "Get-Date -Format 'yyyyMMdd_HHmmss'"') do set timestamp=%%I
     set timestamp=!datetime:~0,8!_!datetime:~8,6!
     if exist "%DEST_DIR%\SNEERYBOOSTER_V1_backup_!timestamp!.exe" del /f /q "%DEST_DIR%\SNEERYBOOSTER_V1_backup_!timestamp!.exe" >nul 2>nul
     move /y "%DEST_EXE%" "%DEST_DIR%\SNEERYBOOSTER_V1_backup_!timestamp!.exe" >nul 2>nul
