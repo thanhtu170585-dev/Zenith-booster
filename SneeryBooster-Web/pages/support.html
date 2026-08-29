@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SNEERYBOOSTER Support Center — documentation, FAQ and ticket submission." />
+  <title>Support — SNEERYBOOSTER V1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="../assets/logo.png" />
+  <style>
+    body{background:var(--bg-gradient);background-attachment:fixed}
+    .navbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,0.78);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(230,237,250,0.9);height:var(--nav-height);display:flex;align-items:center}
+    .navbar .container{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand-logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));display:grid;place-items:center;color:#fff;font-weight:800;font-size:12px;overflow:hidden}
+    .brand-logo img{width:100%;height:100%;object-fit:cover}
+    .container{max-width:var(--container-width);margin:0 auto;padding:0 24px}
+    .hero-support{padding:32px 0 18px;text-align:center;max-width:720px;margin:0 auto}
+    .hero-support h1{font-size:32px}
+    .support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+    .s-card{background:rgba(255,255,255,0.92);border:1px solid var(--border-light);border-radius:20px;box-shadow:var(--shadow-sm);padding:18px;text-align:center;transition:transform 150ms, box-shadow 150ms}
+    .s-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+    .s-icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin:0 auto 10px;background:var(--accent-blue-soft);color:var(--accent-blue);border:1px solid #dfe8ff}
+    .faq{display:grid;grid-template-columns:1fr 380px;gap:14px;margin-top:14px}
+    .card{background:rgba(255,255,255,0.92);border:1px solid var(--border-light);border-radius:20px;box-shadow:var(--shadow-sm);padding:18px}
+    .faq-item{border:1px solid #eef2fb;border-radius:12px;margin-top:8px;overflow:hidden}
+    .faq-q{width:100%;text-align:left;background:rgba(255,255,255,0.9);border:none;padding:12px 14px;font-size:13.5px;font-weight:600;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+    .faq-a{padding:0 14px 12px;font-size:13px;color:var(--text-secondary);line-height:1.6;display:none}
+    .faq-item.open .faq-a{display:block}
+    .faq-item.open .faq-q{background:var(--accent-blue-soft)}
+    @media(max-width:900px){.support-grid{grid-template-columns:1fr}.faq{grid-template-columns:1fr}.container{padding:0 16px}}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="brand">
+        <div class="brand-logo"><img src="../assets/logo.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='SB'; this.parentElement.style.display='grid';" /></div>
+        <div style="line-height:1"><div style="font-weight:800;font-size:13px;letter-spacing:0.04em">SNEERYBOOSTER</div><div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);font-weight:700">White Frosted Control Center</div></div>
+      </a>
+      <div style="display:flex;align-items:center;gap:8px">
+        <a href="../index.html" class="btn-ghost" style="min-height:36px;padding:8px 14px;font-size:13px">Home</a>
+        <a href="dashboard.html" class="btn-ghost" style="min-height:36px;padding:8px 14px;font-size:13px">Dashboard</a>
+        <a href="download.html" class="btn-primary" style="min-height:36px;padding:8px 14px;font-size:13px">Download</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-bottom:28px">
+    <div class="hero-support">
+      <div class="eyebrow" style="justify-content:center">Help Center</div>
+      <h1>Support Center</h1>
+      <p style="margin-top:8px;color:var(--text-secondary);font-size:14.5px">Discord, docs, FAQ and ticket submission — all handled via backend.</p>
+    </div>
+
+    <div class="support-grid">
+      <div class="s-card">
+        <div class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/><path d="M12 3v2"/><path d="M12 19v2"/><path d="M3 12h2"/><path d="M19 12h2"/></svg></div>
+        <strong style="font-size:14px">Discord Community</strong>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:4px">Connect with other users and get help.</p>
+        <a href="#" onclick="event.preventDefault(); alert('Discord invite will be configured in backend.');" class="link" style="margin-top:10px;display:inline-block">Join Discord →</a>
+      </div>
+      <div class="s-card">
+        <div class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <strong style="font-size:14px">Documentation</strong>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:4px">Setup guides and feature explanations.</p>
+        <a href="#" onclick="event.preventDefault(); alert('Docs will be hosted once backend is ready.');" class="link" style="margin-top:10px;display:inline-block">View Docs →</a>
+      </div>
+      <div class="s-card">
+        <div class="s-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4"/><path d="M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <strong style="font-size:14px">Report a Bug</strong>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:4px">Found an issue? Help improve SNEERYBOOSTER.</p>
+        <a href="#ticket" class="link" style="margin-top:10px;display:inline-block">Report Issue →</a>
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="card">
+        <h3 style="font-size:13px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted)">FAQ</h3>
+        <div class="faq-item open">
+          <button class="faq-q" aria-expanded="true">Does the website control my PC remotely? <span>−</span></button>
+          <div class="faq-a">No. The website manages your account, license, devices and synced profiles. The desktop app performs all local Windows/game optimization.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How does payment verification work? <span>+</span></button>
+          <div class="faq-a">You transfer via VPBank VietQR using the QR on the Download page, then submit transaction details. Admin verifies manually. Frontend never auto-activates licenses.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is my account shared between website and app? <span>+</span></button>
+          <div class="faq-a">Yes. Both use the same backend via <code>SNEERYBOOSTER API</code>. Register on website, then sign in with same credentials in the desktop app.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Where do I manage Booster Settings? <span>+</span></button>
+          <div class="faq-a">Only in <strong>SNEERYBOOSTER.exe</strong> on Windows. There is no website page for CPU/RAM/Network booster controls.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How do I download the app? <span>+</span></button>
+          <div class="faq-a">Go to <a href="download.html" class="link">Download</a>. The URL will come from <code>GET /api/app/latest</code> once backend is configured.</div>
+        </div>
+      </div>
+
+      <div class="card" id="ticket">
+        <h3 style="font-size:13px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted)">Contact Support</h3>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:4px">Future API: <code>POST /api/support/tickets</code></p>
+        <form id="ticketForm" style="margin-top:12px">
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" placeholder="Brief summary" required />
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" required>
+              <option value="">Select category</option>
+              <option>Account</option><option>License</option><option>Payment</option><option>Download</option><option>Desktop App</option><option>Bug</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Describe your issue…" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="attachment">Attachment (optional)</label>
+            <input id="attachment" type="file" />
+            <p class="form-hint">Upload will be validated by backend (file type, size).</p>
+          </div>
+          <div id="ticketError" class="form-error" style="display:none"></div>
+          <button type="submit" class="btn-primary" style="width:100%">Submit Ticket</button>
+          <div id="ticketSuccess" style="display:none;margin-top:10px;background:var(--accent-green-soft);border:1px solid rgba(0,195,137,0.18);color:#0a7a5a;padding:10px 12px;border-radius:12px;font-size:13px;text-align:center">Ticket submitted — backend will store it. Admin will respond.</div>
+        </form>
+        <div style="margin-top:12px;background:var(--accent-blue-soft);border:1px solid #dfe8ff;padding:10px 12px;border-radius:12px;font-size:12.5px;color:var(--accent-blue)">Private pages later: <code>GET /api/support/tickets</code> · <code>GET /api/support/tickets/:id</code></div>
+      </div>
+    </div>
+  </main>
+
+  <footer style="background:linear-gradient(180deg,var(--navy),#0a1430);color:#cbd8f2;padding:24px 0;border-top:1px solid var(--navy-light)">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px">
+      <span>© 2026 SNEERYBOOSTER. All rights reserved.</span>
+      <span><a href="../index.html" style="color:#9fb0d0">Home</a> · <a href="download.html" style="color:#9fb0d0">Download</a> · <a href="dashboard.html" style="color:#9fb0d0">Dashboard</a></span>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const item=btn.closest('.faq-item');
+        const open=item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+        btn.querySelector('span').textContent=open? '−' : '+';
+      });
+    });
+    document.getElementById('ticketForm').addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const err=document.getElementById('ticketError');
+      const success=document.getElementById('ticketSuccess');
+      err.style.display='none'; success.style.display='none';
+      const subject=document.getElementById('subject').value.trim();
+      const category=document.getElementById('category').value;
+      const message=document.getElementById('message').value.trim();
+      if(!subject || !category || !message){
+        err.textContent='Please fill subject, category and message.';
+        err.style.display='flex';
+        return;
+      }
+      success.style.display='block';
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

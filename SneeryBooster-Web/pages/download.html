@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Download SNEERYBOOSTER V1 for Windows — official desktop application. Includes purchase and bank transfer payment." />
+  <title>Download &amp; Purchase — SNEERYBOOSTER V1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="../assets/logo.png" />
+  <style>
+    body{background:var(--bg-gradient);background-attachment:fixed}
+    .navbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,0.78);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid rgba(230,237,250,0.9);height:var(--nav-height);display:flex;align-items:center}
+    .navbar .container{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand-logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));display:grid;place-items:center;color:#fff;font-weight:800;font-size:12px;overflow:hidden}
+    .brand-logo img{width:100%;height:100%;object-fit:cover}
+    .container{max-width:var(--container-width);margin:0 auto;padding:0 24px}
+    /* DOWNLOAD HERO - frosted */
+    .download-hero{padding:36px 0 18px;position:relative}
+    .download-hero::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:840px;height:420px;background:radial-gradient(ellipse at 30% 30%, #d6e4ff 0%, transparent 62%), radial-gradient(ellipse at 70% 30%, #e8e0ff 0%, transparent 62%);opacity:0.55;filter:blur(18px);pointer-events:none}
+    .download-card-main{position:relative;background:rgba(255,255,255,0.88);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,0.92);border-radius:24px;box-shadow:0 24px 64px rgba(31,64,122,0.12), 0 1px 0 rgba(255,255,255,0.9) inset;padding:26px;overflow:hidden}
+    .download-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:22px;align-items:start}
+    .eyebrow{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-blue);font-weight:700}
+    .meta{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    .meta span{font-size:11.5px;background:var(--accent-blue-soft);border:1px solid #dfe8ff;padding:5px 10px;border-radius:999px;color:var(--accent-blue);font-weight:600}
+    .file-info{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+    .file-box{background:#f8fbff;border:1px solid #eef2fb;border-radius:12px;padding:10px}
+    .file-box-label{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);font-weight:700}
+    .file-box-value{font-size:13px;font-weight:700;color:var(--text-primary);margin-top:2px;word-break:break-all}
+    .file-box-sub{font-size:11.5px;color:var(--text-muted);margin-top:2px;word-break:break-all}
+    .download-btn{width:100%;min-height:52px;border-radius:14px;font-size:15px;font-weight:800;letter-spacing:0.01em;transition:transform 150ms, box-shadow 150ms, background 150ms}
+    .download-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(42,107,255,0.32)}
+    .download-btn:active{transform:translateY(0)}
+    .alt-download{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+    .alt-download a{font-size:12.5px;color:var(--text-secondary);display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.75);border:1px solid var(--border-light)}
+    .alt-download a:hover{color:var(--accent-blue);background:#fff}
+    .install-card{background:rgba(255,255,255,0.92);border:1px solid var(--border-light);border-radius:16px;padding:14px;box-shadow:var(--shadow-sm)}
+    .install-card ol{margin:8px 0 0 18px;display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--text-secondary)}
+    .install-card ol li{line-height:1.5}
+    .arch-card{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:#fff;border-radius:16px;padding:14px;border:1px solid rgba(255,255,255,0.08);position:relative;overflow:hidden}
+    .arch-card::after{content:"";position:absolute;right:-30px;top:-30px;width:140px;height:140px;background:radial-gradient(circle at 30% 30%, rgba(124,108,255,0.28), transparent 65%)}
+    .section{padding:22px 0}
+    .section h2{font-size:20px}
+    .section p.desc{font-size:13.5px;color:var(--text-secondary);margin-top:4px}
+    .plan-grid{display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:12px;margin-top:12px}
+    .plan{background:rgba(255,255,255,0.92);border:1px solid var(--border-light);border-radius:20px;box-shadow:var(--shadow-sm);padding:18px;display:flex;flex-direction:column}
+    .plan.featured{border-color:#dfe8ff;box-shadow:0 16px 48px rgba(42,107,255,0.12);position:relative;overflow:hidden}
+    .plan.featured::before{content:"Most Popular";position:absolute;top:14px;right:-30px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));color:#fff;font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:5px 36px;transform:rotate(35deg)}
+    .plan-name{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:800;color:var(--text-muted)}
+    .plan-price{font-size:22px;font-weight:850;margin-top:6px}
+    .plan-desc{font-size:13px;color:var(--text-secondary);margin-top:6px;flex:1}
+    .plan ul{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+    .plan li{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--text-secondary)}
+    .plan li svg{color:var(--accent-green);flex-shrink:0}
+    .payment-grid{display:grid;grid-template-columns:380px 1fr;gap:14px;margin-top:12px}
+    .qr-card{background:rgba(255,255,255,0.92);border:1px solid var(--border-light);border-radius:20px;box-shadow:var(--shadow-sm);padding:18px;text-align:center}
+    .qr-frame{background:#fff;border:1px solid #eef2fb;border-radius:16px;padding:14px;display:inline-block;box-shadow:var(--shadow-sm)}
+    .qr-frame img{width:100%;max-width:320px;height:auto;display:block;border-radius:8px;object-fit:contain;aspect-ratio:1}
+    .qr-fallback{width:320px;max-width:100%;height:320px;display:grid;place-items:center;background:#f8fbff;border:1px dashed #d9e3f5;border-radius:12px;color:var(--text-muted);font-size:13px;padding:18px;text-align:center}
+    .info-card{background:rgba(255,255,255,0.92);border:1px solid var(--border-light);border-radius:20px;box-shadow:var(--shadow-sm);padding:18px}
+    .info-row{display:grid;grid-template-columns:160px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid #eef2fb}
+    .info-row:last-child{border-bottom:none}
+    .info-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);font-weight:700}
+    .info-value{font-size:13.5px;font-weight:600;color:var(--text-primary);word-break:break-word}
+    .info-value.muted{color:var(--text-muted);font-weight:500}
+    .order-card{background:rgba(255,255,255,0.92);border:1px solid var(--border-light);border-radius:20px;box-shadow:var(--shadow-sm);padding:18px;margin-top:14px}
+    .status{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:800;padding:5px 10px;border-radius:999px;border:1px solid transparent;display:inline-flex;align-items:center;gap:6px}
+    .status-pending{background:var(--accent-orange-soft);color:#8a5a00;border-color:rgba(255,143,31,0.18)}
+    .status-review{background:var(--accent-blue-soft);color:var(--accent-blue);border-color:#dfe8ff}
+    .status-paid{background:var(--accent-green-soft);color:#0a7a5a;border-color:rgba(0,195,137,0.18)}
+    .steps-list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+    .step{background:rgba(255,255,255,0.92);border:1px solid var(--border-light);border-radius:16px;padding:12px;box-shadow:var(--shadow-sm)}
+    .step-num{width:28px;height:28px;border-radius:50%;background:var(--accent-blue-soft);border:1px solid #dfe8ff;color:var(--accent-blue);display:grid;place-items:center;font-weight:800;font-size:12px}
+    .modal{display:none;position:fixed;inset:0;background:rgba(15,28,53,0.38);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:18px;z-index:60}
+    .modal.open{display:flex}
+    .modal-card{width:100%;max-width:520px;background:rgba(255,255,255,0.98);border:1px solid var(--border-light);border-radius:20px;box-shadow:var(--shadow-lg);padding:18px;max-height:90vh;overflow:auto}
+    @media(max-width:1100px){.plan-grid{grid-template-columns:repeat(2, minmax(0, 1fr));max-width:720px;margin-left:auto;margin-right:auto}}
+    @media(max-width:650px){.plan-grid{grid-template-columns:1fr;max-width:520px}}
+    @media(max-width:900px){.download-grid{grid-template-columns:1fr}.payment-grid{grid-template-columns:1fr}.steps-list{grid-template-columns:1fr}.file-info{grid-template-columns:1fr}}
+    @media(max-width:560px){.container{padding:0 16px}.qr-frame img,.qr-fallback{max-width:100%}}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="brand" aria-label="Home">
+        <div class="brand-logo"><img src="../assets/logo.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='SB'; this.parentElement.style.display='grid';" /></div>
+        <div style="line-height:1"><div style="font-weight:800;font-size:13px;letter-spacing:0.04em">SNEERYBOOSTER</div><div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);font-weight:700">White Frosted Control Center</div></div>
+      </a>
+      <div style="display:flex;align-items:center;gap:8px">
+        <a href="../index.html" class="btn-ghost" style="min-height:36px;padding:8px 14px;font-size:13px">Home</a>
+        <a href="dashboard.html" class="btn-ghost" style="min-height:36px;padding:8px 14px;font-size:13px">Dashboard</a>
+        <a href="support.html" class="btn-secondary" style="min-height:36px;padding:8px 14px;font-size:13px">Support</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- DOWNLOAD SNEERYBOOSTER -->
+    <section class="download-hero" aria-labelledby="download-heading">
+      <div class="download-card-main">
+        <div class="download-grid">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent-blue-soft);border:1px solid #dfe8ff;padding:6px 10px;border-radius:999px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;color:var(--accent-blue)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+              Official Application
+            </div>
+            <h1 id="download-heading" style="margin-top:10px;font-size:28px;line-height:1.05">SNEERYBOOSTER V1</h1>
+            <div style="font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-top:4px">Windows Desktop Application</div>
+            <p style="margin-top:10px;color:var(--text-secondary);font-size:14px;line-height:1.6;max-width:560px">Official SNEERYBOOSTER application for Windows. Download the actual file provided — verified and ready for installation.</p>
+            <div class="meta">
+              <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg> Windows 10 / 11</span>
+              <span>Native .exe</span>
+              <span>V1.0.0</span>
+            </div>
+
+            <div class="file-info">
+              <div class="file-box">
+                <div class="file-box-label">File</div>
+                <div class="file-box-value">SNEERYBOOSTER_V1.exe</div>
+                <div class="file-box-sub">Type: Windows Application · 8.51 MB</div>
+              </div>
+              <div class="file-box">
+                <div class="file-box-label">Installer</div>
+                <div class="file-box-value">SNEERYBOOSTER_V1_install.bat</div>
+                <div class="file-box-sub">Windows Batch · 4,748 bytes</div>
+              </div>
+              <div class="file-box">
+                <div class="file-box-label">Full Bundle (WinRAR/ZIP)</div>
+                <div class="file-box-value">SNEERYBOOSTER_V1_Full.zip</div>
+                <div class="file-box-sub">ZIP chứa exe + bat · 3.33 MB (3,489,740 bytes)</div>
+              </div>
+              <div class="file-box">
+                <div class="file-box-label">Version</div>
+                <div class="file-box-value">V1.0.0</div>
+                <div class="file-box-sub">ProductVersion 1.0.0 — from exe metadata</div>
+              </div>
+              <div class="file-box">
+                <div class="file-box-label">File Size (exe)</div>
+                <div class="file-box-value">8.51 MB</div>
+                <div class="file-box-sub">8,928,256 bytes</div>
+              </div>
+              <div class="file-box">
+                <div class="file-box-label">SHA-256 (exe)</div>
+                <div class="file-box-value" style="font-size:11.5px;letter-spacing:0.02em">D89296403AE393B1FC...96A8F8ED</div>
+                <div class="file-box-sub" style="font-size:10.5px">D89296403AE393B1FC206B0F0A321EF2D13D937FAAD297962B404B2A96A8F8ED</div>
+              </div>
+            </div>
+            <div style="margin-top:8px;background:var(--accent-green-soft);border:1px solid rgba(0,195,137,0.18);padding:8px 10px;border-radius:10px;font-size:11.5px;color:#0a7a5a">ZIP SHA-256: A09544CD3C2F69A415B99DADDC9F80AC521F71D1D6C729B37BD32AE510B5467E · ZIP size 3,489,740 bytes</div>
+
+            <!-- REAL DOWNLOAD: 1 click tải cả exe + bat, và ZIP bundle -->
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px">
+              <button id="downloadBothBtn" class="btn-primary download-btn" style="display:inline-flex;justify-content:center;gap:8px;cursor:pointer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 15V3"/><path d="M7 10l5 5 5-5"/><path d="M2 17l.5 2.5a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1L22 17"/></svg>
+                Download for Windows — EXE + Install Script
+              </button>
+              <div style="font-size:11.5px;color:var(--text-muted);text-align:center">1 click → tải cả 2 file: <code>SNEERYBOOSTER_V1.exe</code> + <code>SNEERYBOOSTER_V1_install.bat</code></div>
+              <a href="../SNEERYBOOSTER_V1_Full.zip" download class="btn-secondary" style="justify-content:center;min-height:44px;border-radius:14px;font-weight:700;display:inline-flex;align-items:center;gap:8px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>
+                Download Full Bundle (.zip) — 3.33 MB (WinRAR)
+              </a>
+              <div style="font-size:11.5px;color:var(--text-muted);text-align:center">File WinRAR/ZIP chứa cả exe + bat — tiện nếu trình duyệt chặn tải 2 file cùng lúc</div>
+            </div>
+            <div class="alt-download" style="margin-top:10px">
+              <a href="../SNEERYBOOSTER_V1.exe" download><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg> EXE only (8.51 MB)</a>
+              <a href="../SNEERYBOOSTER_V1_install.bat" download><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> BAT only (4.6 KB)</a>
+              <a href="../SNEERYBOOSTER_V1_Full.zip" download><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg> ZIP bundle (3.33 MB)</a>
+            </div>
+            <p style="margin-top:8px;font-size:11.5px;color:var(--text-muted)">Future production: <code>GET /api/app/latest</code> will return version, downloadUrl, sha256, size, releaseDate dynamically. Fallback hiện tại trỏ tới file thực trong project.</p>
+            <div id="downloadStatus" style="display:none;margin-top:8px;background:var(--accent-green-soft);border:1px solid rgba(0,195,137,0.18);color:#0a7a5a;padding:8px 10px;border-radius:10px;font-size:12.5px;text-align:center"></div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="install-card">
+              <div style="display:flex;align-items:center;gap:8px">
+                <div style="width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple));display:grid;place-items:center;color:#fff;font-weight:800;font-size:11px">SB</div>
+                <div>
+                  <div style="font-weight:800;font-size:12.5px;letter-spacing:0.03em">SNEERYBOOSTER V1</div>
+                  <div style="font-size:11px;color:var(--text-muted)">White Frosted Gaming Control Center</div>
+                </div>
+                <span class="badge badge--info" style="margin-left:auto">Windows</span>
+              </div>
+              <h3 style="margin-top:12px;font-size:13px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted)">Installation</h3>
+              <ol>
+                <li>Download the official SNEERYBOOSTER application.</li>
+                <li>Open the downloaded file.</li>
+                <li>Follow the installation instructions.</li>
+                <li>Launch SNEERYBOOSTER.</li>
+                <li>Sign in using your SNEERYBOOSTER account.</li>
+                <li>Your license and device information will be verified through the backend.</li>
+              </ol>
+              <div style="margin-top:10px;background:var(--accent-blue-soft);border:1px solid #dfe8ff;padding:8px 10px;border-radius:10px;font-size:11.5px;color:var(--accent-blue)">WebView2 runtime is required (Tauri). Installer checks automatically.</div>
+            </div>
+
+            <div class="arch-card">
+              <div style="position:relative">
+                <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#9fb0d0;font-weight:700">App ↔ Website Connection</div>
+                <div style="margin-top:8px;display:flex;flex-direction:column;gap:6px;font-size:12.5px">
+                  <div style="display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent-green);display:inline-block"></span> Website: Account / License / Devices / Purchase</div>
+                  <div style="display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:#7c6cff;display:inline-block"></span> Desktop App: Actual Windows optimization</div>
+                  <div style="display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent-blue);display:inline-block"></span> Both use SNEERYBOOSTER Backend</div>
+                </div>
+                <div style="margin-top:10px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:11px;color:#cbd8f2">
+                  <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.16);padding:4px 8px;border-radius:999px">Website</span>
+                  <span>↓</span>
+                  <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.16);padding:4px 8px;border-radius:999px">SNEERYBOOSTER API</span>
+                  <span>↓</span>
+                  <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.16);padding:4px 8px;border-radius:999px">Database</span>
+                  <span>↑</span>
+                  <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.16);padding:4px 8px;border-radius:999px">Desktop App</span>
+                </div>
+                <p style="margin-top:8px;font-size:11px;color:#9fb0d0">Clicking download does not remotely launch or control the app.</p>
+              </div>
+            </div>
+
+            <div style="background:var(--accent-green-soft);border:1px solid rgba(0,195,137,0.18);padding:10px 12px;border-radius:12px;font-size:12.5px;color:#0a7a5a;display:flex;gap:8px">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Verified: 1 click tải cả 2 file thực — <code>SNEERYBOOSTER_V1.exe</code> (8.51 MB) + <code>SNEERYBOOSTER_V1_install.bat</code> (4.6 KB). Đã tạo ZIP bundle <code>SNEERYBOOSTER_V1_Full.zip</code> (3.33 MB) chứa cả hai — WinRAR/ZIP.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PURCHASE LICENSE -->
+    <section class="section" id="purchase">
+      <h2>Purchase License</h2>
+      <p class="desc">Choose your plan. An order will be created — then pay via bank transfer.</p>
+      <div class="plan-grid">
+        <div class="plan">
+          <div class="plan-name">Free</div>
+          <div class="plan-price">PRICE TBD</div>
+          <p class="plan-desc">Get started and explore the control center.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> Basic profiles</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> Community support</li>
+          </ul>
+          <button class="btn-secondary orderBtn" data-plan="FREE" style="margin-top:12px;justify-content:center">Create Order</button>
+        </div>
+        <div class="plan">
+          <div class="plan-name">Monthly</div>
+          <div class="plan-price">Coming Soon<span style="font-size:13px;color:var(--text-muted);font-weight:500">/ month</span></div>
+          <p class="plan-desc">Full access with a monthly license.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> All optimization tools (app)</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> Game profile sync</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> Device management</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> Priority support</li>
+          </ul>
+          <button class="btn-secondary orderBtn" data-plan="MONTHLY" style="margin-top:12px;justify-content:center">Create Order</button>
+        </div>
+        <div class="plan featured">
+          <div class="plan-name">Yearly</div>
+          <div class="plan-price">Coming Soon<span style="font-size:13px;color:var(--text-muted);font-weight:500">/ year</span></div>
+          <p class="plan-desc">Full access with license &amp; device management.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> All tools (app)</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> Profile sync</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> Device management</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> Priority support</li>
+          </ul>
+          <button class="btn-primary orderBtn" data-plan="YEARLY" style="margin-top:12px;justify-content:center">Create Order</button>
+        </div>
+        <div class="plan">
+          <div class="plan-name">Lifetime</div>
+          <div class="plan-price">Coming Soon</div>
+          <p class="plan-desc">One-time purchase for long-term use.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> Everything in Yearly</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l10-10"/></svg> Lifetime updates</li>
+          </ul>
+          <button class="btn-secondary orderBtn" data-plan="LIFETIME" style="margin-top:12px;justify-content:center">Create Order</button>
+        </div>
+      </div>
+      <p style="margin-top:8px;font-size:11.5px;color:var(--text-muted);text-align:center">Orders: <code>POST /api/orders</code> · Payments: <code>POST /api/payments/submit</code> — admin verifies.</p>
+    </section>
+
+    <!-- PAYMENT -->
+    <section class="section" id="payment">
+      <h2>Payment — Bank Transfer</h2>
+      <p class="desc">Transfer the required amount using the bank information below. After payment, submit your transaction details so the order can be verified.</p>
+      <div class="payment-grid">
+        <div class="qr-card">
+          <div class="eyebrow" style="justify-content:center">PAYMENT</div>
+          <div style="font-size:13px;font-weight:700;margin-top:4px">Scan to transfer</div>
+          <div style="margin-top:12px">
+            <div class="qr-frame">
+              <img src="../assets/images/payment-qr.png" alt="SNEERYBOOSTER payment QR code — VPBank VietQR Napas 247" onerror="this.style.display='none'; document.getElementById('qrFallback').style.display='grid';" />
+              <div id="qrFallback" class="qr-fallback" style="display:none">
+                <div>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="margin:0 auto 8px;display:block"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                  <strong>Payment QR not yet configured</strong><br>
+                  <span>Place your real VPBank VietQR image at<br><code>assets/images/payment-qr.png</code></span><br>
+                  <span style="font-size:11px;color:var(--text-muted)">Do not modify or regenerate the QR.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:10px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap">
+            <span class="badge badge--info">VPBank</span>
+            <span class="badge badge--info">VietQR</span>
+            <span class="badge badge--info">Napas 247</span>
+          </div>
+          <p style="margin-top:8px;font-size:11.5px;color:var(--text-muted)">Image is displayed as-is. Do not crop, distort or re-encode.</p>
+        </div>
+
+        <div class="info-card">
+          <h3 style="font-size:13px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted)">Transfer Instructions — Configurable</h3>
+          <div class="info-row">
+            <div class="info-label">Bank</div>
+            <div class="info-value">VPBank</div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">Payment Method</div>
+            <div class="info-value">VietQR / Bank Transfer</div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">Account Holder</div>
+            <div class="info-value muted">Configure in backend — not hardcoded</div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">Account Number</div>
+            <div class="info-value muted">Configure in backend — not hardcoded</div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">Amount</div>
+            <div class="info-value muted">Displayed after order creation</div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">Transfer Content</div>
+            <div class="info-value"><code id="transferContent">SB-XXXX · your email</code><br><span style="font-size:11.5px;color:var(--text-muted)">Use Order ID so admin can match payment.</span></div>
+          </div>
+          <div style="margin-top:12px;background:var(--accent-orange-soft);border:1px solid rgba(255,143,31,0.18);padding:10px 12px;border-radius:12px;font-size:12.5px;color:#8a5a00;display:flex;gap:8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Do not invent account holder / account number. Verify details in backend/admin before transferring.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER STATUS -->
+    <section class="order-card" id="orderStatus">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+        <h3 style="font-size:15px">Order Status</h3>
+        <span class="status status-pending" id="orderStatusBadge">No order yet</span>
+      </div>
+      <div id="noOrder" style="margin-top:10px;padding:14px;background:rgba(255,255,255,0.6);border:1px dashed #d9e3f5;border-radius:12px;text-align:center;color:var(--text-muted);font-size:13.5px">
+        Create an order from a plan above. Order ID will appear here.<br>
+        <span style="font-size:11.5px">Example: <code>ORDER #SB-XXXX</code> — Pending Payment</span>
+      </div>
+      <div id="orderDetail" style="display:none;margin-top:10px">
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
+          <div style="background:#f8fbff;border:1px solid #eef2fb;border-radius:12px;padding:10px"><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);font-weight:700">Order</div><div style="font-weight:700;margin-top:2px" id="orderId">#SB-0000</div><div style="font-size:12px;color:var(--text-muted)" id="orderProduct">—</div></div>
+          <div style="background:#f8fbff;border:1px solid #eef2fb;border-radius:12px;padding:10px"><div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);font-weight:700">Amount</div><div style="font-weight:700;margin-top:2px" id="orderAmount">Configure in backend</div><div style="font-size:12px;color:var(--text-muted)">Bank Transfer</div></div>
+        </div>
+        <button class="btn-primary" id="paidBtn" style="width:100%;margin-top:12px">I HAVE COMPLETED PAYMENT</button>
+        <p style="margin-top:6px;font-size:11.5px;color:var(--text-muted);text-align:center">This does <strong>not</strong> auto-activate license. It opens a verification form.</p>
+      </div>
+    </section>
+
+    <!-- PAYMENT VERIFICATION STATES -->
+    <section class="section">
+      <h2>How payment verification works</h2>
+      <div class="steps-list">
+        <div class="step"><div class="step-num">1</div><strong style="font-size:13px;margin-top:6px;display:block">Create order</strong><span style="font-size:12.5px;color:var(--text-secondary)">Choose plan → create order → get Order ID</span></div>
+        <div class="step"><div class="step-num">2</div><strong style="font-size:13px;margin-top:6px;display:block">Scan QR &amp; transfer</strong><span style="font-size:12.5px;color:var(--text-secondary)">Use VPBank VietQR with Order ID in content</span></div>
+        <div class="step"><div class="step-num">3</div><strong style="font-size:13px;margin-top:6px;display:block">Submit proof</strong><span style="font-size:12.5px;color:var(--text-secondary)">Transaction ID, amount, date/time</span></div>
+        <div class="step"><div class="step-num">4</div><strong style="font-size:13px;margin-top:6px;display:block">Admin review</strong><span style="font-size:12.5px;color:var(--text-secondary)">Backend stores request, admin approves</span></div>
+        <div class="step"><div class="step-num">5</div><strong style="font-size:13px;margin-top:6px;display:block">License activated</strong><span style="font-size:12.5px;color:var(--text-secondary)">Approved → license appears in account</span></div>
+        <div class="step"><div class="step-num">6</div><strong style="font-size:13px;margin-top:6px;display:block">Desktop app</strong><span style="font-size:12.5px;color:var(--text-secondary)">Sign in with same account to verify</span></div>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <span class="status status-pending">PENDING</span>
+        <span class="status status-review">UNDER REVIEW</span>
+        <span class="status status-paid">PAID</span>
+        <span class="status" style="background:var(--accent-red-soft);color:#7f1d1d;border-color:rgba(255,59,48,0.18)">REJECTED</span>
+      </div>
+      <div style="margin-top:10px;background:var(--accent-red-soft);border:1px solid rgba(255,59,48,0.16);padding:10px 12px;border-radius:12px;font-size:12.5px;color:#7f1d1d;display:flex;gap:8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Frontend cannot be trusted for payment verification. Never auto-activate on button click. Backend/admin is authoritative.</div>
+      <div style="margin-top:12px;text-align:center"><a href="support.html" class="link">Having payment problems? Contact Support →</a></div>
+    </section>
+  </main>
+
+  <!-- PAYMENT SUBMISSION MODAL -->
+  <div class="modal" id="paymentModal" aria-hidden="true">
+    <div class="modal-card">
+      <div style="display:flex;align-items:center;justify-content:space-between"><h3 style="font-size:16px">Submit Payment for Verification</h3><button class="btn-ghost" id="closePayment" style="min-height:36px;padding:8px 12px">Close</button></div>
+      <p style="font-size:12.5px;color:var(--text-muted);margin-top:4px">Order <code id="modalOrderId">#SB-XXXX</code> — manual admin verification required.</p>
+      <form id="paymentForm" style="margin-top:12px">
+        <div class="form-group"><label for="txOrderId">Order ID</label><input id="txOrderId" type="text" placeholder="SB-XXXX" required /></div>
+        <div class="form-group"><label for="txRef">Transaction ID / Reference</label><input id="txRef" type="text" placeholder="Bank reference" required /></div>
+        <div class="form-row">
+          <div class="form-group"><label for="txAmount">Transferred Amount</label><input id="txAmount" type="text" placeholder="e.g., 299000" required /></div>
+          <div class="form-group"><label for="txDate">Transfer Date</label><input id="txDate" type="date" required /></div>
+        </div>
+        <div class="form-group"><label for="txTime">Transfer Time</label><input id="txTime" type="time" required /></div>
+        <div class="form-group"><label for="txNote">Note (optional)</label><textarea id="txNote" placeholder="Any additional info"></textarea></div>
+        <div class="form-group"><label for="txProof">Payment Proof Screenshot (optional)</label><input id="txProof" type="file" accept="image/*" /></div>
+        <div id="paymentError" class="form-error" style="display:none"></div>
+        <div style="display:flex;gap:10px;margin-top:12px"><button type="button" class="btn-secondary" style="flex:1" id="cancelPayment">Cancel</button><button type="submit" class="btn-primary" style="flex:1">Submit for Verification</button></div>
+        <p style="margin-top:8px;font-size:11.5px;color:var(--text-muted);text-align:center">Future APIs: <code>POST /api/payments/submit</code> · Admin: <code>POST /api/admin/payments/:id/approve</code></p>
+      </form>
+      <div id="paymentSuccess" style="display:none;margin-top:12px;background:var(--accent-green-soft);border:1px solid rgba(0,195,137,0.18);color:#0a7a5a;padding:10px 12px;border-radius:12px;font-size:13px;text-align:center">Your payment has been submitted for verification. Admin will review and update order status.</div>
+    </div>
+  </div>
+
+  <footer style="margin-top:18px;background:linear-gradient(180deg,var(--navy),#0a1430);color:#cbd8f2;padding:24px 0;border-top:1px solid var(--navy-light)">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px">
+      <span>© 2026 SNEERYBOOSTER. All rights reserved.</span>
+      <span><a href="../index.html" style="color:#9fb0d0">Home</a> · <a href="support.html" style="color:#9fb0d0">Support</a> · <a href="dashboard.html" style="color:#9fb0d0">Dashboard</a></span>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    // Dual download: 1 click → tải cả exe + bat
+    (function(){
+      const btn = document.getElementById('downloadBothBtn');
+      const status = document.getElementById('downloadStatus');
+      if(!btn) return;
+      const files = [
+        { url: '../SNEERYBOOSTER_V1.exe', name: 'SNEERYBOOSTER_V1.exe' },
+        { url: '../SNEERYBOOSTER_V1_install.bat', name: 'SNEERYBOOSTER_V1_install.bat' }
+      ];
+      function triggerDownload(url, name){
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = name;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(()=> a.remove(), 1000);
+      }
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        // Verify files are web-accessible (Live Server root = SneeryBooster-Web)
+        files.forEach((f, i) => {
+          setTimeout(() => triggerDownload(f.url, f.name), i * 450);
+        });
+        if(status){
+          status.textContent = 'Đang tải cả 2 file: SNEERYBOOSTER_V1.exe (8.51 MB) + SNEERYBOOSTER_V1_install.bat (4.6 KB). Nếu trình duyệt chặn tải đồng thời, hãy dùng “Full Bundle (.zip)” — file WinRAR/ZIP chứa cả hai.';
+          status.style.display = 'block';
+          setTimeout(()=> status.style.display='none', 6000);
+        }
+      });
+    })();
+    // Order flow (no auto-activate)
+    let orderCounter=0;
+    const orderIds=['SB-7421','SB-8392','SB-9150'];
+    document.querySelectorAll('.orderBtn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const plan=btn.dataset.plan;
+        const id=orderIds[orderCounter % orderIds.length];
+        orderCounter++;
+        document.getElementById('noOrder').style.display='none';
+        document.getElementById('orderDetail').style.display='block';
+        document.getElementById('orderId').textContent='#'+id;
+        document.getElementById('orderProduct').textContent=plan+' Plan';
+        document.getElementById('orderAmount').textContent='Coming Soon — configured in backend';
+        document.getElementById('orderStatusBadge').textContent='Pending Payment';
+        document.getElementById('orderStatusBadge').className='status status-pending';
+        document.getElementById('transferContent').textContent=id+' · your email';
+        document.getElementById('modalOrderId').textContent='#'+id;
+        document.getElementById('txOrderId').value=id;
+        document.getElementById('orderStatus').scrollIntoView({behavior:'smooth', block:'center'});
+      });
+    });
+    const modal=document.getElementById('paymentModal');
+    const openPayment=()=>{ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); };
+    const closePayment=()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); };
+    const paidBtn=document.getElementById('paidBtn');
+    if(paidBtn) paidBtn.addEventListener('click',openPayment);
+    document.getElementById('closePayment').addEventListener('click',closePayment);
+    document.getElementById('cancelPayment').addEventListener('click',closePayment);
+    modal.addEventListener('click',(e)=>{ if(e.target===modal) closePayment(); });
+    document.getElementById('paymentForm').addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const err=document.getElementById('paymentError');
+      err.style.display='none';
+      const orderId=document.getElementById('txOrderId').value.trim();
+      const ref=document.getElementById('txRef').value.trim();
+      const amount=document.getElementById('txAmount').value.trim();
+      const date=document.getElementById('txDate').value;
+      const time=document.getElementById('txTime').value;
+      if(!orderId || !ref || !amount || !date || !time){
+        err.textContent='Please fill all required fields.';
+        err.style.display='flex';
+        return;
+      }
+      document.getElementById('paymentSuccess').style.display='block';
+      document.getElementById('orderStatusBadge').textContent='Under Review';
+      document.getElementById('orderStatusBadge').className='status status-review';
+      e.target.reset();
+      setTimeout(()=>{ closePayment(); document.getElementById('paymentSuccess').style.display='none'; }, 2600);
+    });
+  </script>
+</body>
+</html>
