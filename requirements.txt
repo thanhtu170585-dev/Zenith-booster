@@ -1,0 +1,9 @@
+kivy==2.3.1
+kivymd==1.2.0
+kivy-garden
+pillow==11.1.0
+psutil
+pyjnius
+android
+buildozer
+pytest

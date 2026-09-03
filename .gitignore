@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.bin/
+build/
+dist/
+*.apk
+*.aab
+.venv/
+venv/
+.env
+logs/
+data/sessions.json
+data/profiles.json
